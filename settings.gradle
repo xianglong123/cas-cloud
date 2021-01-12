@@ -1,2 +1,2 @@
 include 'cloud-provider-8001'
-
+include 'cloud-eureka-serve7001'
