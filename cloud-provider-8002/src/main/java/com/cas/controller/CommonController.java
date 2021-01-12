@@ -14,7 +14,7 @@ public class CommonController {
 
     @RequestMapping("/getName")
     public String getName() {
-        return "hello, my port is 8001";
+        return "hello, my port is 8002";
     }
 
 }
