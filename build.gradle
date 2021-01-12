@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral() //本地库支持
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    }
+
+    dependencies {
+        classpath ("org.springframework.boot:spring-boot-gradle-plugin")
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE' // 依赖管理
+    id 'java'
+}
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+
+subprojects { // 子模块的通用配置
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'eclipse-wtp'
+    apply plugin: 'idea'
+    apply plugin: 'jacoco'
+
+    repositories {
+        mavenCentral()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    }
+
+    dependencies {
+        implementation('org.springframework.boot:spring-boot-starter-web')
+        implementation("org.springframework.boot:spring-boot-configuration-processor")
+        implementation("org.projectlombok:lombok")
+        testImplementation("org.projectlombok:lombok")
+        testImplementation "org.springframework.boot:spring-boot-starter-test"
+    }
+}
+
+group 'com.cas'
+version '0.0.1-SNAPSHOT'

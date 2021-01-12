@@ -1,0 +1,4 @@
+# Project exclude paths
+/.gradle/
+/cloud-provider-8001/build/
+/cloud-provider-8001/build/classes/java/main/
