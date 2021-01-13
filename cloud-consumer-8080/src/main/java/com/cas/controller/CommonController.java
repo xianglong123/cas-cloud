@@ -27,6 +27,10 @@ public class CommonController {
         return restTemplate.getForObject(COMMON_URL + "/getName", String.class, String.class);
     }
 
+    @GetMapping("/discovery")
+    public Object discovery() {
+        return restTemplate.getForObject(COMMON_URL + "/discovery", Object.class, Object.class);
+    }
 
 
 }

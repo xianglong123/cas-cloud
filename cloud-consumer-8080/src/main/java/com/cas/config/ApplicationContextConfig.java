@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
 
     @Bean
-    @LoadBalanced
+    @LoadBalanced // @LoadBalanced 起到负载均衡的效果，不然多个服务无法确定连接哪台，策略：轮训
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }

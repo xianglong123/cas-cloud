@@ -1,7 +1,9 @@
 package com.cas;
 
+import com.rule.MySelfRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 /**
  * @author: xianglong[1391086179@qq.com]
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @review:
  */
 @SpringBootApplication
+@RibbonClient(name = "CLOUD-PRIVIDER-SERVICE", configuration = MySelfRule.class)
 public class ConsumerApplication {
 
     public static void main(String[] args) {
