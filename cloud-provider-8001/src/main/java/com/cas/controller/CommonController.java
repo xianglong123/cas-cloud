@@ -41,4 +41,13 @@ public class CommonController {
         return this.discoveryClient;
     }
 
+    @ResponseBody
+    @RequestMapping("/timeout")
+    public String timeout() throws InterruptedException {
+        Thread.sleep(3000);
+        return "timeout, my port is 8001";
+    }
+
+
+
 }
