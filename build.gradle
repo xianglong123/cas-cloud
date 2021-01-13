@@ -28,6 +28,7 @@ subprojects { // 子模块的通用配置
     }
 
     dependencies {
+        implementation('cn.hutool:hutool-all:5.1.0')
         implementation('org.springframework.boot:spring-boot-starter-web')
         implementation("org.springframework.boot:spring-boot-configuration-processor")
         implementation("org.projectlombok:lombok")

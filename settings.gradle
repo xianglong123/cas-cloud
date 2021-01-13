@@ -4,4 +4,6 @@ include 'cloud-eureka-serve7002'
 include 'cloud-provider-8002'
 include 'cloud-consumer-8080'
 include 'cloud-consumer-feign-8080'
+include 'cloud-provider-hystrix-8001'
+include 'cloud-consumer-feign-hystrix-8080'
 
