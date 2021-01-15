@@ -19,4 +19,9 @@ public class FeignHystrixFallbackService implements FeignHystrixService{
     public String timeout() {
         return "fallback timeout !！ 😭";
     }
+
+    @Override
+    public String breaker(Integer id) {
+        return "fallback breaker !! 😭";
+    }
 }

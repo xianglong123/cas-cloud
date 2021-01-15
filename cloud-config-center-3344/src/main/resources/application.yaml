@@ -1,0 +1,42 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center # 注册进eureka服务端的微服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xianglong123/cas-cloud-config.git # github 上面git仓库名称
+          ### 搜索目录
+          search-paths:
+            - cas-cloud-config
+#          force-pull: true
+#          username: xianglong123
+#          password: xl1391086179..
+      ### 读取分支
+      label: master
+# rabbitmq相关配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+# 注册进eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+# rabbitmq相关配置，暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+
+### 配置中心访问地址：http://localhost:3344/master/config-test.yaml
+### 访问规则 /{label}/{config}-{profile}.yaml
+
+# 总线刷新其他分支，一次请求，处处刷新：curl -X POST "http://localhost:3344/actuator/bus-refresh"
+# 只刷新指定ip，访问请求： curl -X POST "http://localhost:3344/actuator/bus-refresh/cloud-confige:3355"   其中cloud-config是当前3355的微服务名
