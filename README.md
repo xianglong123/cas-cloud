@@ -10,6 +10,7 @@
 
     这个项目去掉了dao层，所有模块都能很简单的启动起来，很适合cloud初学者下载配合视频学习效果更佳，
     视频资源：https://www.bilibili.com/video/BV18E411x7eT?from=search&seid=3900752421887932066
+---
 
 ### 模块总结
     springcloud模块：
@@ -48,6 +49,9 @@
     springcloud官网：https://spring.io/projects/spring-cloud
     nacos官网： https://nacos.io/zh-cn/docs/quick-start.html
     springcloud-alibaba中文文档： https://github.com/alibaba/spring-cloud-alibaba/blob/master/README-zh.md
-    
+---
+  
 ### 鸣谢
     各位道友，涨薪加油。如果这个项目对你有一点点帮助，帮我点个start,满足一下小小的虚荣心。。。
+
+---
