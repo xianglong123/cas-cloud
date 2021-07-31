@@ -16,4 +16,5 @@ include 'cloudalibaba-provider-payment9001'
 include 'cloudalibaba-provider-payment9002'
 include 'cloudalibaba-consumer-nacos-order83'
 include 'cloudalibaba-config-naocs-client3377'
+include 'cloudalibaba-sentinel-service8401'
 
