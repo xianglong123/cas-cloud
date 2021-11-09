@@ -1,0 +1,10 @@
+dependencies {
+    implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery"
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+}
+
+// 排除全局依赖
+configurations {
+    compile.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    compile.exclude group: 'org.springframework.boot', module: 'spring-boot-configuration-processor'
+}

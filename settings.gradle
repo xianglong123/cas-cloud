@@ -20,4 +20,5 @@ include 'cloudalibaba-config-naocs-client3377'
 include 'cloudalibaba-sentinel-service8401'
 include 'cloudalibaba-provider-payment9003'
 include 'cloudalibaba-provider-payment9004'
+include 'cloudalibaba-gateway-9528'
 
