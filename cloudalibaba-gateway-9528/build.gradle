@@ -1,6 +1,6 @@
 dependencies {
     implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery"
-    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway:2.2.1.RELEASE'
 }
 
 // 排除全局依赖

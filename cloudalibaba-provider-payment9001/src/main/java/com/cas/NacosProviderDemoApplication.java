@@ -3,10 +3,7 @@ package com.cas;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -25,8 +22,30 @@ public class NacosProviderDemoApplication {
         }
 
         @RequestMapping("/getName")
-        public String getName() {
-            return "hello, my port is 8001";
+        public String getName(@RequestParam("uname") String uname) {
+            return "hello " + uname + ", my port is 9001";
+        }
+
+        @RequestMapping("/sign")
+        public String sign(@RequestBody User user) {
+            return "hello " + user.getUname() + ", my port is 9001";
+        }
+
+    }
+
+
+    public static class User{
+
+        public User() {}
+
+        private String uname;
+
+        public String getUname() {
+            return uname;
+        }
+
+        public void setUname(String uname) {
+            this.uname = uname;
         }
     }
 }
