@@ -64,7 +64,7 @@ public class CommonController {
                     @HystrixProperty(name = "coreSize", value = "12"),
                     @HystrixProperty(name = "maxQueueSize", value = "30"),
 //                    @HystrixProperty(name = "keepAliveTimeMinutes", value = "1")
-            },// 2222222
+            },
             commandProperties = {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
             })
