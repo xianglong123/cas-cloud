@@ -7,10 +7,14 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -27,7 +31,7 @@ public class CommonController {
     private DiscoveryClient discoveryClient;
 
     @ResponseBody
-    @RequestMapping("/getName")
+    @PostMapping("/getName")
     public String getName() {
         return "hello, my port is 8001";
     }
@@ -42,12 +46,20 @@ public class CommonController {
     }
 
     @ResponseBody
-    @RequestMapping("/timeout")
+    @PostMapping("/timeout")
     public String timeout() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(12000);
         return "timeout, my port is 8001";
     }
 
 
+    @ResponseBody
+    @RequestMapping("/header")
+    public String header() {
+        ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = sra.getRequest();
+        String name = request.getHeader("name");
+        return "hello, my port is 8001, header=[" + name + "]";
+    }
 
 }

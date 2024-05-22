@@ -1,9 +1,7 @@
 package com.cas.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author: xianglong[1391086179@qq.com]
@@ -13,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * <p>
  * feign的接口，可以是controller,也可以是service
  */
-@FeignClient(value = "CLOUD-PRIVIDER-SERVICE")
-public interface FeignService {
+@FeignClient(value = "CLOUD-PRIVIDER-SERVICE", contextId = "yjm")
+public interface FeignCustomService {
 
     @PostMapping("/getName")
     public String getName();

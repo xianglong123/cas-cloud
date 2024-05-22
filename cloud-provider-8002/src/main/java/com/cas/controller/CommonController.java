@@ -1,6 +1,5 @@
 package com.cas.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.client.ServiceInstance;
@@ -9,8 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -43,8 +45,17 @@ public class CommonController {
     @ResponseBody
     @RequestMapping("/timeout")
     public String timeout() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(30000);
         return "timeout, my port is 8002";
+    }
+
+    @ResponseBody
+    @RequestMapping("/header")
+    public String header() {
+        ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = sra.getRequest();
+        String name = request.getHeader("name");
+        return "hello, my port is 8001, header=[" + name + "]";
     }
 
 }

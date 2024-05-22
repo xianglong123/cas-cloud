@@ -15,8 +15,18 @@ ribbon:
   # 指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
 
+
 # 开启feign日志
 logging:
   level:
     # feign日志以什么级别监控哪个接口
     com.cas.service.FeignService: debug
+feign:
+  client:
+    config:
+      yjm:
+        connect-timeout: 60000
+        readTimeout: 15000
+      default:
+        connect-timeout: 60000
+        readTimeout: 3000
