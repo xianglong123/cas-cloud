@@ -45,14 +45,43 @@ public class CommonController {
 
     /**
      * 上面的timeout方法超时或者报错都会通过 timeoutHandler兜底
+     *
      * @return
      */
     public String timeoutHandler() {
-        return  Thread.currentThread().getName() + " 方法超时或者报错执行兜底方法2000 timeoutHandler! 😭 ";
+        return Thread.currentThread().getName() + " 方法超时或者报错执行兜底方法2000 timeoutHandler! 😭 ";
     }
 
     public String Global_timeoutHandler() {
         return "Global_timeoutHandler !! 😭";
+    }
+
+
+    // -------------- 限流测试 start ---------------------------
+    @HystrixCommand(
+            threadPoolKey = "myServiceThreadPool",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "12"),
+                    @HystrixProperty(name = "maxQueueSize", value = "30"),
+//                    @HystrixProperty(name = "keepAliveTimeMinutes", value = "1")
+            },
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+            })
+    @RequestMapping("/limit")
+    public String limit() {
+        try {
+            System.out.println("---1----1----");
+            Thread.sleep(600);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "ok";
+    }
+
+    public String fallbackMethod() {
+        // 降级逻辑
+        return "Fallback";
     }
 
 }

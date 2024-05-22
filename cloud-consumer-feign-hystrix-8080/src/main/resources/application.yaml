@@ -17,3 +17,10 @@ ribbon:
 feign:
   hystrix:
     enabled: true
+#hystrix:
+#  threadpool:
+#    PaymentThreadPool:
+#      core-size: 6
+#      max-size: 9
+#      max-queue-size: 9
+#      keep-alive-time-minutes: 1
