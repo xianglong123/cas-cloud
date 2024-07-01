@@ -17,10 +17,15 @@ ribbon:
 feign:
   hystrix:
     enabled: true
-#hystrix:
-#  threadpool:
-#    PaymentThreadPool:
-#      core-size: 6
-#      max-size: 9
-#      max-queue-size: 9
-#      keep-alive-time-minutes: 1
+spring:
+  application:
+    name: cas-mq
+  rabbitmq:
+    host: 127.0.0.1 # 用户名
+    port: 5672      # port
+    username: guest # 用户名
+    password: guest # 密码
+    virtual-host: / # 指定连接到broker的Virtual host.
+    publisher-confirm-type: none
+    publisherReturns: false
+    connectionTimeout: 10000
